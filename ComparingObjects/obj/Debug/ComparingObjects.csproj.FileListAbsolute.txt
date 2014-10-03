@@ -1,5 +1,4 @@
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ComparingObjects.exe.config
-C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.csprojResolveAssemblyReference.cache
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.Form1.resources
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.Properties.Resources.resources
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.csproj.GenerateResource.Cache

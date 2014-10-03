@@ -79,16 +79,16 @@ namespace ComparingObjects
             //List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(model, changed);
             //DisplayDifferences(changes, "High Level Comparison");
             
-            ExampleBO first = new ExampleBO() { Name = "John Doe", PermitKey = 1, Registration = new List<RegistrationDO>() };
+            ExampleBO first = new ExampleBO() { Name = "Operator", PermitKey = 1, Registration = new List<RegistrationDO>() };
             first.Registration.Add(model);
             first.Registration.Add(changed);
 
-            ExampleBO second = new ExampleBO() { Name = "Jane Do", PermitKey = 2, Registration = new List<RegistrationDO>() };
+            ExampleBO second = new ExampleBO() { Name = "Operator", PermitKey = 2, Registration = new List<RegistrationDO>() };
             //second.Registration.Add(changed);
             second.Registration.Add(model);
             
 
-            List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(first, second, "John Doe", "Jane Do");
+            List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(first, second, "Permit 1", "Permit 2");
             DisplayDifferences(changes, "Comparison involving nested objects");
             
         }

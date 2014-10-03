@@ -108,7 +108,7 @@ namespace ComparingObjects
 
                 // if a match was found then 
                 if (!aHasMatchInB)
-                    differences.Add(new KeyValuePair<string, string>(PropertyName, string.Format("Item {0} in {1} did not have an exact match in {2}", index, DescriptionA, DescriptionB)));
+                    differences.Add(new KeyValuePair<string, string>(PropertyName, string.Format("Item {0} in {1} did not have a match in {2}", index, DescriptionA, DescriptionB)));
 
                 index++;
             }
