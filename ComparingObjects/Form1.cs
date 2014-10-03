@@ -14,6 +14,7 @@ namespace ComparingObjects
     {
         RegistrationDO model = new RegistrationDO()
         {
+            PermitKey = 1,
             Address1 = "123",
             City = "Helena",
             Value = 123.33m,
@@ -27,6 +28,7 @@ namespace ComparingObjects
 
         RegistrationDO changed = new RegistrationDO()
         {
+            PermitKey = 2,
             Address1 = "1234",
             City = "Helena",
             Value = 123.33m,
@@ -53,6 +55,7 @@ namespace ComparingObjects
         /// <summary>
         /// This method of comparison uses the FindDifferences method that could be generated as part of the Data Object class in Dalapi.
         /// </summary>
+        /*
         private void LowLevelComparison()
         {
             DateTime A = DateTime.Now;
@@ -64,7 +67,7 @@ namespace ComparingObjects
 
             List<KeyValuePair<string, string>> changes = model.FindDifferences(changed);
             DisplayDifferences(changes, "Low Level Comparison");
-        }
+        }*/
 
 
         /// <summary>
@@ -72,16 +75,22 @@ namespace ComparingObjects
         /// </summary>
         private void HighLevelComparison()
         {
-            DateTime A = DateTime.Now;
-            for (int i = 0; i < timesToRun; i++)
-                CompareObjects.FindDifferences(model, changed);
-            DateTime B = DateTime.Now;
 
-            MessageBox.Show("Low level speed test = " + B.Subtract(A).Milliseconds.ToString() + " Milliseconds to run " + timesToRun.ToString() + "times");
+            //List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(model, changed);
+            //DisplayDifferences(changes, "High Level Comparison");
+            
+            ExampleBO first = new ExampleBO() { Name = "John Doe", PermitKey = 1, Registration = new List<RegistrationDO>() };
+            first.Registration.Add(model);
+            first.Registration.Add(changed);
 
-            List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(model, changed);
+            ExampleBO second = new ExampleBO() { Name = "Jane Do", PermitKey = 2, Registration = new List<RegistrationDO>() };
+            //second.Registration.Add(changed);
+            second.Registration.Add(model);
+            
 
-            DisplayDifferences(changes, "High Level Comparison");
+            List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(first, second, "John Doe", "Jane Do");
+            DisplayDifferences(changes, "Comparison involving nested objects");
+            
         }
 
 
@@ -108,7 +117,8 @@ namespace ComparingObjects
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LowLevelComparison();
+
+            //LowLevelComparison();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -1,22 +1,26 @@
-// CREATED BY: Mike Williams
-// CREATED DATE: 9/22/2014
-// DO NOT MODIFY THIS CODE
-// CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
-// GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
-
-
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace ComparingObjects
 {
+
+    public class ExampleBO
+    {
+        public int PermitKey { get; set; }
+        
+        public string Name{ get; set; }
+
+        public List<RegistrationDO> Registration { get; set; }
+        
+    }
+
+
     /// <summary>
     /// Encapsulates a row of data in the Registration table
     /// </summary>
     public partial class RegistrationDO
     {
-
+        public int PermitKey { get; set; }
         public virtual Int32 RegistrationID {get; set;}
         public virtual Boolean? IsOpen {get; set;}
         public virtual Int32? IndexNumber {get; set;}
@@ -26,6 +30,8 @@ namespace ComparingObjects
         public virtual String StateID {get; set;}
         public virtual String Zipcode {get; set;}
         public virtual String Phone {get; set;}
+
+        /*
 
 
         public bool AreIdentical(RegistrationDO other)
@@ -61,5 +67,6 @@ namespace ComparingObjects
         {
             return string.Format("Changed from '{0}' to '{1}'", A, B);
         }
+        */
     }
 }
