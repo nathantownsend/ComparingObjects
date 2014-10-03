@@ -46,16 +46,80 @@ namespace ComparingObjects
 
                 // handle lists differently
                 if (type.StartsWith("System.Collections.Generic.List"))
-                    GetListDifferences(ref differences, property, ValueA, ValueB, DescriptionA, DescriptionB);
+                {
+                    //GetListDifferences(ref differences, property, ValueA, ValueB, DescriptionA, DescriptionB);
+                    //if(!ListsMatch(ValueA, ValueB)){
+                    if (!CompareLists(ValueA, ValueB))
+                    {
+                        KeyValuePair<string, string> notTheSame = new KeyValuePair<string, string>(property.Name, "changed");
+                        differences.Add(notTheSame);
+                    }
+                }
                 else
+                {
                     GetBasicDifference(ref differences, property, ValueA, ValueB);
+                }
             }
 
-            
-
             return differences;
-
         }
+
+
+
+        private static bool CompareLists(object ValueA, object ValueB)
+        {
+            int ACount = (ValueA as IEnumerable<object>).Count();
+            int BCount = (ValueB as IEnumerable<object>).Count();
+
+            // if the lists contain different numbers of items they can't match
+            if (ACount != BCount)
+                return false;
+
+            // are all items from list also in list b
+            bool match = ListsMatch(ValueA, ValueB);
+            if (!match)
+                return false;
+
+            // there is a rare possibility that it could pass the previous test and still be different: for example ValueA has A,B,B,C; ValueB has A,B,C,D - since A,B,C are in ValueB it passes
+
+            // are all items from list b also in list a
+            return ListsMatch(ValueB, ValueA);
+            
+        }
+
+
+        private static bool ListsMatch(object ValueA, object ValueB)
+        {
+            // COMPARE A TO B
+            foreach (object a in ValueA as IEnumerable<object>)
+            {
+                bool hasMatch = false;
+
+                // compare each item in List A to each item in List B
+                foreach (object b in ValueB as IEnumerable<object>)
+                {
+                    if (!hasMatch)
+                    {
+                        List<KeyValuePair<string, string>> compare = FindDifferences(a, b, "", "");
+
+                        // if there are no differences, then a match has been found an no need to look further
+                        if (compare.Count == 0)
+                            hasMatch = true;
+                    }
+                }
+                
+                // if a match wasn't found then there is a difference
+                if (!hasMatch)
+                    return false;
+            }
+
+
+            // if nothing differs return true
+            return true;
+        }
+
+
+
 
         /// <summary>
         /// Compares two lists of objects and finds differeences
@@ -155,7 +219,8 @@ namespace ComparingObjects
 
         private static string DisplayDifferences(object A, object B)
         {
-            return string.Format("changed from '{0}' to '{1}'", A, B);
+            return "changed";
+            //return string.Format("changed from '{0}' to '{1}'", A, B);
         }
 
     }

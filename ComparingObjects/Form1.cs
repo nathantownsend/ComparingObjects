@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ePermitBLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -124,6 +125,16 @@ namespace ComparingObjects
         private void button2_Click(object sender, EventArgs e)
         {
             HighLevelComparison();
+        }
+
+        private void CompareLocation_Click(object sender, EventArgs e)
+        {
+            LocationBO location7 = PermitBLL.GetLocation(6);
+            LocationBO location8 = PermitBLL.GetLocation(8);
+
+            List<KeyValuePair<string, string>> changes = CompareObjects.FindDifferences(location7, location8, "Permit 7", "Permit 8");
+            DisplayDifferences(changes, "Compare two location business objects");
+
         }
     }
 }

@@ -6,3 +6,10 @@ C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\Com
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ComparingObjects.pdb
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.exe
 C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.pdb
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\obj\Debug\ComparingObjects.csprojResolveAssemblyReference.cache
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ePermitBLL.dll
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ePermitDAL.dll
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\log4net.dll
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ePermitBLL.pdb
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\ePermitDAL.pdb
+C:\Users\cb0290\Documents\GitHub\ComparingObjects\ComparingObjects\bin\Debug\log4net.xml

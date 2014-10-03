@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button2 = new System.Windows.Forms.Button();
+            this.CompareLocation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -41,11 +42,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // CompareLocation
+            // 
+            this.CompareLocation.Location = new System.Drawing.Point(294, 31);
+            this.CompareLocation.Name = "CompareLocation";
+            this.CompareLocation.Size = new System.Drawing.Size(229, 83);
+            this.CompareLocation.TabIndex = 2;
+            this.CompareLocation.Text = "Compare Location";
+            this.CompareLocation.UseVisualStyleBackColor = true;
+            this.CompareLocation.Click += new System.EventHandler(this.CompareLocation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 344);
+            this.Controls.Add(this.CompareLocation);
             this.Controls.Add(this.button2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CompareLocation;
 
     }
 }
